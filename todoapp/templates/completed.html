@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if tasks %}
+        {% for task in tasks %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="#">Posted on - {{ task.date_created.strftime('%Y-%m-%d') }}</a>
+                        <a class="mr-2" href="#">Due on - {{ task.due_date.strftime('%Y-%m-%d') }}</a>
+                    </div>
+                    <h2><a class="article-title">{{ task.content }}</a></h2>
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
+        <h1>Completed Tasks: </h1>
+    {% endif %}
+{% endblock content %}
